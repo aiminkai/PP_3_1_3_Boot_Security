@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -56,14 +55,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public User getUserById(int id) {
         Optional<User> foundUser = userRepository.findById(id);
         return foundUser.orElse(null);
     }
 
     @Override
-    @Transactional
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
